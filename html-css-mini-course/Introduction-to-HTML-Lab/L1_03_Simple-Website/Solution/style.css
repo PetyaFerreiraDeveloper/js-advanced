@@ -1,0 +1,46 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    margin: 0 3rem;
+    flex-grow: 1;
+}
+
+header {
+    background: rgb(24, 18, 49);
+    padding: 1rem;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+    margin: 1rem;
+}
+
+li {
+    padding: 0 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+article div p {
+    font-style: italic;
+}
+
+footer {
+    background: rgb(24, 18, 49);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    /* margin-top: auto; */
+}
