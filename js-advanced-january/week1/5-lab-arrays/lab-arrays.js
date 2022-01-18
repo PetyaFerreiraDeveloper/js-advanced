@@ -39,13 +39,13 @@ console.log(numbers.sort());
 // Numbers sort
 let nums = [20, 40, 30, 5, 70, 55];
 
-nums.sort((a, b) => a - b);
-console.log(nums);
+let sortedNums = nums.sort((a, b) => a - b);
+console.log(sortedNums);
 
 // Alphabetical sort
 
-cars.sort((a, b) => a.localeCompare(b));
-console.log(cars);
+let sortedCars = cars.sort((a, b) => a.localeCompare(b));
+console.log(sortedCars);
 
 // concat - creates new arr
 let arr = ['monkey', 'dog', 'cat'];
@@ -111,3 +111,16 @@ let summedNumse = numse.reduce((accumulator, num) => {
 }, 0);
 console.log(summedNumse);
 
+let data = [1, 5, 8, 3];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+console.log(data.reduce(reducer));
+console.log(data.reduce(reducer, 5));
+
+// slice
+
+let arrSlicer = ['cc', 'aaa', 'bb', 1,2,3,4,5]
+let copy = arrSlicer.slice(0);
+console.log(copy);
+let arrSliced = arrSlicer.slice(0, 3);
+console.log(arrSliced);
+console.log(arrSlicer);
