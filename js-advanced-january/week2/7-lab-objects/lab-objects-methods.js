@@ -35,3 +35,17 @@ let calc = {
 }
 
 console.log(calc.sum(10, 15));
+
+// Work with JSON
+
+let dog = {
+    age: 5,
+    breed: 'shepard'
+}
+
+let jsonDog = JSON.stringify(dog);
+console.log(typeof jsonDog);
+
+let parsedDog = JSON.parse(jsonDog);
+
+console.log(parsedDog.breed);
