@@ -124,3 +124,10 @@ console.log(copy);
 let arrSliced = arrSlicer.slice(0, 3);
 console.log(arrSliced);
 console.log(arrSlicer);
+
+
+// splice
+
+let arrToSplice = [1, 5, 8, 3];
+let removedEl = arrToSplice.splice(1,1);
+console.log(arrToSplice); // 1, 8, 3
