@@ -1,3 +1,7 @@
 function extractText() {
-    // TODO
+    let listItems = document.getElementById('items').textContent;
+    let textArea = document.getElementById('result');
+    textArea.textContent = listItems;
 }
+
+extractText()
