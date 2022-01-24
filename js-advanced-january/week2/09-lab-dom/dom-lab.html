@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM lab</title>
+</head>
+<body>
+    <h1 id="heading">Hello to the DOM!</h1>
+    <ul>
+        <li>BMW</li>
+        <li>Mercedes</li>
+        <li id="audi-car">Audi</li>
+    </ul>
+    <button onclick="changeTitle()">Title</button>
+    <button onclick="onSecondButtonClick()">Second</button>
+    <button onclick="changeCar()">Change Car</button>
+
+    <script>
+
+        function changeTitle() {
+            let headingElement = document.getElementById('heading');
+            headingElement.textContent = 'Hello from JS'; // this changes only the text 
+        }
+
+        function onSecondButtonClick() {
+            let headingElement = document.getElementById('heading');
+            headingElement.innerHTML = 'Hello from <em>JS<em>'; // this will parse new HTML to the browser
+        }
+
+        function changeCar() {
+            let audiElement = document.getElementById('audi-car');
+            audiElement.textContent = 'Audi Quatro'; 
+        }
+
+    </script>
+</body>
+</html>
