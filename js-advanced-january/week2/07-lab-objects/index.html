@@ -25,10 +25,45 @@
     <script>
         function fromJSONToHTMLTable(input){
             //Write your code here
+            let arr = JSON.parse(input);
+            // console.log(arr);
+            let table = document.createElement('table');
+            let body = document.getElementsByTagName('body')[0];
+            body.appendChild(table)
+            let obj = [];
+            let keys = Object.keys(arr[0]);
+            for (let key of keys) {
+                let th = document.createElement('th');
+                th.textContent = key;
+                table.appendChild(th);
+            }
+            for (let el of arr) {
+                let values = Object.values(el);
+                obj.push(values)
+            }
+            console.log(obj);
+            for (let arr of obj) {
+                let tr = document.createElement('tr');
+                for (let el of arr) {
+                    let td = document.createElement('td');
+                    td.textContent = el;
+                    tr.appendChild(td);
+                }
+                let th = document.createElement('th');
+                th.appendChild(tr);
+                table.appendChild(th)
+
+            }
+            return table
+
         }
         window.onload = function(){
             let container = document.getElementById('wrapper');
-            container.innerHTML = fromJSONToHTMLTable(['[{"Name":"Stamat","Price":5.5},{"Name":"Rumen","Price":6}]']);
+            container.innerHTML = fromJSONToHTMLTable(`[{"Name":"Stamat",
+    "Score":5.5},
+   {"Name":"Rumen",
+    "Score":6}]`
+);
         };
     </script>
 

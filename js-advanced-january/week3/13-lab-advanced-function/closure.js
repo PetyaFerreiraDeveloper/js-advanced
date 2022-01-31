@@ -15,4 +15,18 @@ function a() {
     b()
 }
 
-a()
+//a()
+
+// CURRING - giving in few parameters to the same function which has several nested returns
+
+function sum3(a) {
+    return (b) => {
+        return (c) => {
+            return a + b + c;
+        }
+    }
+}
+
+
+let result = sum3(5)(6)(8);
+console.log(result);
