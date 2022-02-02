@@ -17,7 +17,7 @@ function a() {
 
 //a()
 
-// CURRING - giving in few parameters to the same function which has several nested returns
+// CURRYING - giving in few parameters to the same function which has several nested returns
 
 function sum3(a) {
     return (b) => {
