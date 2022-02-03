@@ -14,7 +14,7 @@ function test() {
 
     // Assert
 
-    if (actualSum == expextedSum) {
+    if (actualSum == expectedSum) {
         console.log("correct");
     } else {
         console.log("error");
