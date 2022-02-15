@@ -53,7 +53,7 @@ class Repository {
             }
         }
 
-        //Validate property type
+    //Validate property type
         for (let propName in entity) {
             let val = entity[propName];
             if (typeof val !== this.props[propName]) {
