@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My Buses</h1>
+    <input type="text" name="name" id="name">
+    <button id="add-bus-stop">Add</button>
+    <button id="load-buses">Load</button>
+    <ul id="bus-list">
+
+    </ul>
+
+    <script>
+        const baseUrl = 'http://localhost:3030/jsonstore';
+        const inputElement = document.getElementById('name');
+        const buttonElement = document.getElementById('load-buses');
+        const addButtonElement = document.getElementById('add-bus-stop');
+        const busesList = document.getElementById('bus-list');
+
+        buttonElement.addEventListener('click', () => {
+            fetch(`${baseUrl}/bus`)
+            .then(res => res.json())
+            .then(buses => {
+                let info = buses.businfo;
+                console.log(info);
+                // let arrStops = Object.values(info);
+                // for (let stop of arrStops) {
+                //     console.log(stop.name);
+                // }
+                busesList.innerHTML = '';
+                Object.values(info)
+                    .forEach(busStop => {
+                        let busStopElement = document.createElement('li');
+                        
+                        busStopElement.textContent = busStop.name;
+                        busesList.appendChild(busStopElement);
+                    })
+            })
+            .catch(err => console.log(err));
+        });
+
+        addButtonElement.addEventListener('click', () => {
+            let nameStop = inputElement.value;
+
+            fetch(`${baseUrl}/bus/businfo`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({nameStop})
+            })
+            .then(res => res.json())
+            .then(busStop => {
+                let busStopElement = document.createElement('li');
+                busStopElement.textContent = busStop.nameStop;
+                busesList.appendChild(busStopElement);
+            });
+        })
+    </script>
+</body>
+</html>
