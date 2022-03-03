@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM Events | Movie List</h1>
+    <ul id="movie-list">
+        <li>The Matrix</li>
+        <li>The Lord of the Rings</li>
+        <li>Spiderman</li>
+        <li>Black Widow</li>
+        <li>The Hunt</li>
+    </ul>
+
+    <a href="/" id="link">LINK</a>
+
+    <script>
+        // current target vs target 
+        // target is clicked element 
+        // currentTarget is the element with the eventListener
+
+        let movieElements = document.getElementById('movie-list');
+
+        movieElements.addEventListener('click', (e) => {
+            // console.log(e.target); // gives the clicked element
+            // console.log(e.currentTarget); // gives the element on which we have attached event listener
+            // console.log(e.target.tagName);
+
+
+            // if (e.target.tagName != 'LI') {
+            //     return;
+            // }
+            if (e.target.tagName == 'LI') {
+                e.target.style.textDecoration = 'line-through'
+            }
+        })
+
+        // movieElements.forEach(el => {
+        //     el.addEventListener('click', function(e) {
+        //         e.currentTarget.style.textDecoration = 'line-through';
+        //     })
+        // })
+
+        // Second example
+        let linkElement = document.getElementById('link');
+        linkElement.addEventListener('click', (e) => {
+            e.preventDefault(); // it will stop the default behavior of the link tag
+            console.log('click');
+        })
+    </script>
+</body>
+</html>

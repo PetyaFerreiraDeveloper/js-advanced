@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent" style="padding: 40px; background-color: aqua;">
+        <h2>Parent</h2>
+        <div id="child" style="padding: 40px; background-color: coral;">
+            <h3>Child</h3>
+            <div id="grandchild" style="padding: 40px; background-color: red;">
+                <h4>GrandChild</h4>
+            </div>
+        </div>
+    </div>
+
+<script>
+    let parentElement = document.getElementById('parent');
+    let childElement = document.getElementById('child');
+    let grandchildElement = document.getElementById('grandchild');
+
+    childElement.addEventListener('click', () => {
+        console.log('child');
+    });
+
+    parentElement.addEventListener('click', (e) => {
+        console.log('parent');
+        
+    })
+
+    grandchildElement.addEventListener('click', (e) => {
+        // e.stopPropagation();
+        console.log('grandchild');
+    })
+</script>
+
+</body>
+</html>

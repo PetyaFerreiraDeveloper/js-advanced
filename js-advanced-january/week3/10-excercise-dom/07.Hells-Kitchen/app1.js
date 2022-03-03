@@ -13,8 +13,8 @@ function solve() {
 
         for (let line of input) {
             let restaurantInfo = line.split(' - ');
-            let restaurantName = restaurantInfo[0];
-            let workersData = restaurantInfo[1].split(', ');
+            let restaurantName = restaurantInfo.shift();
+            let workersData = restaurantInfo[0].split(', ');
 
             for(let worker of workersData) {
                 let [name, salary] = worker.split(' ');
@@ -30,8 +30,8 @@ function solve() {
         for(let entry of entries){
             
             let key = entry[0];
-            let values = Object.values(entry[1])
-            for(let salary of values){
+            let values = Object.entries(entry[1]);
+            for(let [name, salary] of values){
                 totalSalary += salary;
             }
             // console.log(totalSalary);
