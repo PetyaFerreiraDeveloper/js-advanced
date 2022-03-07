@@ -9,4 +9,5 @@ function isOddOrEven(string) {
     return "odd";
 }
 
+console.log(isOddOrEven(' '));
 module.exports = isOddOrEven;
