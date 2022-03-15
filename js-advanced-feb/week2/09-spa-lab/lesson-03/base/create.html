@@ -29,6 +29,41 @@
             </form>
         </article>
     </main>
+
+    <script>
+        let formElement = document.querySelector('form');
+        formElement.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let formData = new FormData(e.currentTarget);
+            let name = formData.get('name');
+            let img = formData.get('name');
+            let ingredients = formData.get('name').split('\n');
+            let steps = formData.get('name').split('\n');
+            let data = {
+                name,
+                img,
+                ingredients,
+                steps
+            };
+
+            let accessToken = localStorage.getItem('accessToken');
+            console.log(accessToken);
+
+            fetch('http://localhost:3030/data/recipes', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    'X-Authorization': accessToken
+                },
+                body: JSON.stringify(data)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    location.href = './index.html'
+                    console.log(data);
+                })
+        })
+    </script>
 </body>
 
 </html>
