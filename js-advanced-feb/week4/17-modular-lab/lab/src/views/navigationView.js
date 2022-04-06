@@ -1,4 +1,6 @@
 import { html, nothing } from "../../node_modules/lit-html/lit-html.js";
+import page from '../../node_modules/page/page.mjs';
+
 
 const guestLinks = html`
   <li class="nav-item">
@@ -17,6 +19,14 @@ const privateLinks = html`
     <a class="nav-link" href="/logout">Logout</a>
   </li>
 `;
+
+const searchHandler = (e) => {
+  e.preventDefault();
+
+  let formData = new FormData(e.currentTarget);
+  let search = formData.get('search');
+  page.redirect(`/movies?search=${search}`)
+}
 
 export const navigationTemplate = ({ user, isAuthenticated }) => html`
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -51,10 +61,11 @@ export const navigationTemplate = ({ user, isAuthenticated }) => html`
             `
           : nothing}
 
-        <form class="d-flex">
+        <form class="d-flex" @submit=${searchHandler}>
           <input
             class="form-control me-2"
             type="search"
+            name="search"
             placeholder="Search"
             aria-label="Search"
           />

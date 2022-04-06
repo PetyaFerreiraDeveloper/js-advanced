@@ -6,7 +6,7 @@ const movieTemplate = (movie) => html`
     <img src=${movie.posterUrl} class="card-img-top" alt="..." />
     <div class="card-body">
       <h5 class="card-title">${movie.title}</h5>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <a href="/movies/${movie._id}" class="btn btn-primary">Details</a>
     </div>
   </div>
 `;
@@ -18,7 +18,9 @@ const homeTemplate = (movies) => html`
 `;
 
 export const homeView = (ctx) => {
-  movieService.getAll()
+  let searchParams = new URLSearchParams(ctx.querystring)
+
+  movieService.getAll(searchParams.get('search'))
   .then((movies) => {
     // render(homeTemplate(movies), document.querySelector("#root"));
     ctx.render(homeTemplate(movies))
